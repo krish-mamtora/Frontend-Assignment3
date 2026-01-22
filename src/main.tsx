@@ -6,13 +6,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.tsx';
 import Home from './pages/Home.tsx';
 import About from './pages/About.tsx';
-import Products from './pages/Products.tsx';
 import Cart from './pages/Cart.tsx';
 import ProductList from './components/ProductList.tsx';
 import ProductDetails from './components/ProductDetails.tsx';
 import ProductCustomize from './components/ProductCustomize.tsx'
 import Shop from './pages/Shop.tsx';
+import axios from 'axios';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,9 +25,8 @@ const router = createBrowserRouter([
       {index : true, element : <Home />},
       {path : "cart" , element : <Cart/>},
       {path : "about" , element : <About/>},
-      {path : "shop" , element : <Shop/>,
+      {path : "shop" , element : <ProductList />,
         children : [
-            {   index :  true, element : <ProductList />} ,        
              {   path : "productID" , element : <ProductDetails/>,
                 children : [
                   {
@@ -41,6 +42,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <QueryClientProvider client={queryClient}>
     <RouterProvider router={router}></RouterProvider>
-  </StrictMode>,
+    </QueryClientProvider>
+  </StrictMode>
 )

@@ -1,0 +1,25 @@
+.productlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; 
+  padding: 10px;
+}
+.productcard {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  width: 220px;
+}
+
+.productcard b {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.productcard p {
+  margin: 0;
+  color: #555;
+}
