@@ -4,11 +4,15 @@ import './index.css';
 import App from './App.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.tsx';
-
 import Home from './pages/Home.tsx';
 import About from './pages/About.tsx';
-import Product from './pages/Product.tsx';
+import Products from './pages/Products.tsx';
 import Cart from './pages/Cart.tsx';
+import ProductList from './components/ProductList.tsx';
+import ProductDetails from './components/ProductDetails.tsx';
+import ProductCustomize from './components/ProductCustomize.tsx'
+import Shop from './pages/Shop.tsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,12 +21,21 @@ const router = createBrowserRouter([
     children : 
     [
       {index : true, element : <Home />},
-      {path :  "products", element : <Product />},
-      {path : "about", element:<About />},
-      {path : "product" , element : <Product/>},
       {path : "cart" , element : <Cart/>},
-
-    ]
+      {path : "about" , element : <About/>},
+      {path : "shop" , element : <Shop/>,
+        children : [
+            {   index :  true, element : <ProductList />} ,        
+             {   path : "productID" , element : <ProductDetails/>,
+                children : [
+                  {
+                    path : "customize"  , element : <ProductCustomize/>,
+                  }
+                ]
+              },
+            ]
+          },
+      ]
   }
 ]);
 

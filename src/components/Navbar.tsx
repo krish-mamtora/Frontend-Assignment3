@@ -22,12 +22,12 @@ export const  Navbar = () => {
             About
         </NavLink>
          <NavLink
-            to="/product"
+            to="/shop"
             style={({isActive})=>({
                 color : isActive?"Red" :"black"
             })}
         >
-            Product
+            shop
         </NavLink>
          <NavLink
             to="/cart"
