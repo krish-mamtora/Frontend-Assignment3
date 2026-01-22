@@ -25,19 +25,10 @@ const router = createBrowserRouter([
       {index : true, element : <Home />},
       {path : "cart" , element : <Cart/>},
       {path : "about" , element : <About/>},
-      {path : "shop" , element : <ProductList />,},
-      {path : "shop/:id" , element : <ProductDetails />,},
+      {path : "shop" , element : <ProductList />},
+      {path : "products/:id" , element : <ProductDetails />},
       {path : "shop/:id/customise" , element:<ProductCustomize/>}
-        // children : [
-        //      {   path : "productID" , element : <ProductDetails/>,
-        //         children : [
-        //           {
-        //             path : "customize"  , element : <ProductCustomize/>,
-        //           }
-        //         ]
-        //       },
-        //     ]
-        //   },
+       
       ]
   }
 ]);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../App.css'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './ProductList.css'
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
@@ -52,8 +52,10 @@ function ProductList() {
                         )
                     })
                 }
+                  <Link to={`/products/${index}`}>Details</Link>
                 </div>
-                <button onClick={() => navigate(`/shop/${index}`)}>ViewDetials</button> </>
+              
+                 </>
 
             ))
         }</div>
