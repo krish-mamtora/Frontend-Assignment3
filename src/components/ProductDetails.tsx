@@ -6,7 +6,8 @@ import { Link, Outlet, useParams } from 'react-router-dom'
 function ProductDetails() {
 
     const {productID} = useParams();
-
+    console.log(productID);
+    
   return (
     <>
    <div>
