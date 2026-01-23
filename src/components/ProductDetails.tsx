@@ -26,7 +26,7 @@ function ProductDetails() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const AddtoCart = ({id}) =>{
+  const AddtoCart = (id) =>{
       addTocart(id);
   }
   return (
@@ -36,34 +36,24 @@ function ProductDetails() {
          <div className='productlist'>
               <div className='productcard'>
                   {product && Object.keys(product).map((title , i)=>{
-                    
-                        return (
-                            
+                        return (   
                             <div key={i} className=''>
-                                
                                 {title && title=="image" && (
                                     <>
                                     <img style={{height:"50px" , width:"50px"}} src={product[title]} alt="img" /></>
                                 )}
-
                                 {title && (title != "image") && (title !="rating ") &&(
                                          <> <strong>{title}</strong> : <span>{String(product[title])}</span></>
                                      )}                                     
-
                                     {title && title=="rating" && (
                                       <></>
                                     )}
-
                             </div>
-                       
                         )
-                     
                   })}
                    <Link to="customize">Customize Product</Link>
-                    <button onClick={AddtoCart (id)}> Add To Cart</button>
-
+                    <button onClick={()=>{AddtoCart (id)}}> Add To Cart</button>
               </div>
-       
         </div>
         <Outlet></Outlet>
    </div>

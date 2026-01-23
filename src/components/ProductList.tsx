@@ -52,7 +52,7 @@ function ProductList() {
                         )
                     })
                 }
-                  <Link to={`/products/${index}`}>Details</Link>
+                  <Link to={`/products/${(index+1)}`}>Details</Link>
                 </div>
               
                  </>

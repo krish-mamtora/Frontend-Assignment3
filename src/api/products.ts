@@ -17,7 +17,7 @@ export const getProductById = async(id : string) =>{
     if(!id){
         throw new Error ("product ID is required");
     }
-    const response = await api.get(`/products/${id}`);
+    const response = await api.get(`/products/${(id)}`);
     if(!response.data){
         throw new Error("Product not found");
     }
